@@ -1,0 +1,5 @@
+# To-Do List
+
+* verify I'm doing things on the EDT (or not)
+* add support for Mac quit event (Command-Q)
+
