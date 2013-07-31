@@ -33,10 +33,11 @@ object DataStore {
     saveStocks()
   }
 
+  // save the stock symbols, in sorted order
   private def saveStocks() {
     val file = new File(dataFile) 
     val bw = new BufferedWriter(new FileWriter(file))
-    for (stock <- stocks) bw.write(s"$stock\n")
+    for (stock <- stocks.sorted) bw.write(s"$stock\n")
     bw.close()
   }
 

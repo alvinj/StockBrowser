@@ -24,13 +24,15 @@ object StockBrowser extends SwingApplication {
   
   val ADD_BUTTON_TEXT = "Add"
   val REMOVE_BUTTON_TEXT = "Remove"
+  val LIST_WIDTH = 160
+  val LIST_HEIGHT = 900
 
   val stocksListModel = new DefaultListModel
       
   // the jlist that holds stocks of interest
   val stocksListView = new ListView[String]() {
-    peer.setMinimumSize(new Dimension(200, 900))
-    peer.setPreferredSize(new Dimension(200, 900))
+    peer.setMinimumSize(new Dimension(LIST_WIDTH, LIST_HEIGHT))
+    peer.setPreferredSize(new Dimension(LIST_WIDTH, LIST_HEIGHT))
     selection.intervalMode = ListView.IntervalMode.Single
     val stocks = DataStore.getStocks()
     stocks.map(stocksListModel.addElement(_))
@@ -95,8 +97,8 @@ object StockBrowser extends SwingApplication {
   
   def desiredInitialSize = {
     val screenSize = Toolkit.getDefaultToolkit.getScreenSize
-    val w = (screenSize.getWidth * 0.625f).toInt
-    val h = (screenSize.getHeight * 0.625f).toInt
+    val w = (screenSize.getWidth * 0.8f).toInt
+    val h = (screenSize.getHeight * 0.8f).toInt
     new Dimension(w, h)
   }
 
